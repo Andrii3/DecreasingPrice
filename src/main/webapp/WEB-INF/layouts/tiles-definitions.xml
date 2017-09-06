@@ -9,8 +9,8 @@
         <put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp" />
     </definition>
 
-    <definition name="hello" template="/WEB-INF/pages/hello.jsp">
-        <!--<put-attribute name="title" value="Hello page"/>-->
-        <!--<put-attribute name="content" value="/WEB-INF/pages/hello.jsp"/>-->
+    <definition name="hello" extends="defaultTemplate">
+        <put-attribute name="title" value="Hello page"/>
+        <put-attribute name="content" value="/WEB-INF/pages/hello.jsp"/>
     </definition>
  </tiles-definitions>

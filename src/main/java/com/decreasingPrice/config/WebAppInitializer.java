@@ -14,7 +14,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
-@Configuration
 public class WebAppInitializer implements WebApplicationInitializer{
 
     private static final Logger LOGGER = Logger.getLogger(WebApplicationInitializer.class);
@@ -55,7 +54,7 @@ public class WebAppInitializer implements WebApplicationInitializer{
         registration.setLoadOnStartup(1);
 
         // add mapping this servlet to all requests
-        registration.addMapping("/");
+        registration.addMapping("/*");
 
     }
 }

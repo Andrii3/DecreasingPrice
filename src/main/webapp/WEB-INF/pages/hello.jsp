@@ -1,9 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Simple JSP page</title>
-</head>
-<body>
-    <p>${message}</p>
-</body>
-</html>
+
+<div>
+    <p>First Run</p>
+</div>
+

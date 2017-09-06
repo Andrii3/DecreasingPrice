@@ -11,11 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class SimpleController {
 
-    @RequestMapping("/hello")
+    @RequestMapping("/")
 //    @ResponseBody
-    public ModelAndView home() {
+    public ModelAndView home(Model model) {
         String message = "new Model";
-        return new ModelAndView("hello", "message", message);
+        return new ModelAndView("hello", "message", message );
     }
 
     @RequestMapping("/random")
