@@ -13,9 +13,9 @@ public class SimpleController {
 
     @RequestMapping("/")
 //    @ResponseBody
-    public ModelAndView home(Model model) {
+    public String home(Model model) {
         String message = "new Model";
-        return new ModelAndView("hello", "message", message );
+        return "hello";
     }
 
     @RequestMapping("/random")

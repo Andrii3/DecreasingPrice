@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @EnableWebMvc
 @Configuration
@@ -31,42 +32,32 @@ public class TilesConfig extends WebMvcConfigurerAdapter {
     }
 
 
-    @Override
-    public void configureViewResolvers(ViewResolverRegistry registry) {
-//        registry.viewResolver(viewResolver());
-        registry.viewResolver(jspViewResolver());
-        registry.viewResolver(tilesViewResolver());
-    }
-
-//    @Bean
-//    public MultipleViewResolver viewResolver() {
-//        Map<String, ViewResolver> viewsResolvers = new HashMap<String, ViewResolver>();
-//        viewsResolvers.put(MultipleViewResolver.ViewType.JSP.getKey(), jspViewResolver());
-//        viewsResolvers.put(MultipleViewResolver.ViewType.TILES.getKey(), tilesViewResolver());
-//
-//        MultipleViewResolver viewResolver = new MultipleViewResolver();
-//        viewResolver.setViewsResolvers(viewsResolvers);
-//        viewResolver.setOrder(1);
-//        return viewResolver;
+//    @Override
+//    public void configureViewResolvers(ViewResolverRegistry registry) {
+////        registry.viewResolver(viewResolver());
+//        registry.viewResolver(jspViewResolver());
+//        registry.viewResolver(tilesViewResolver());
 //    }
 
+
+
     @Bean
-    public UrlBasedViewResolver tilesViewResolver() {
-        UrlBasedViewResolver urlBasedViewResolver = new UrlBasedViewResolver();
+    public TilesViewResolver tilesViewResolver() {
+        TilesViewResolver urlBasedViewResolver = new TilesViewResolver();
         urlBasedViewResolver.setViewClass(TilesView.class);
         urlBasedViewResolver.setOrder(1);
         return urlBasedViewResolver;
     }
 
-    @Bean
-    public InternalResourceViewResolver jspViewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/pages/");
-        viewResolver.setSuffix(".jsp");
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setOrder(0);
-        return viewResolver;
-    }
+//    @Bean
+//    public InternalResourceViewResolver jspViewResolver() {
+//        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+//        viewResolver.setPrefix("/WEB-INF/pages/");
+//        viewResolver.setSuffix(".jsp");
+//        viewResolver.setViewClass(JstlView.class);
+//        viewResolver.setOrder(0);
+//        return viewResolver;
+//    }
 
 
 
