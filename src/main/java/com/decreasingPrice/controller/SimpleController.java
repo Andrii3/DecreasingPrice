@@ -1,26 +1,30 @@
 package com.decreasingPrice.controller;
 
-import java.util.Random;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class SimpleController {
 
-    @RequestMapping("/")
-//    @ResponseBody
-    public String home(Model model) {
-        String message = "new Model";
+    @GetMapping({"/", "welcome**"})
+    public String homePage(Model model) {
+        model.addAttribute("title", "Spring Security Hello World");
+        model.addAttribute("message", "This is welcome page!");
         return "hello";
     }
 
-    @RequestMapping("/random")
-    @ResponseBody
-    public int numberOfUsers() {
-        return new Random(10).nextInt();
+    @GetMapping("/admin**")
+    public String adminPage(Model model) {
+        model.addAttribute("title", "Spring Security Hello World");
+        model.addAttribute("message", "This is protected page - Admin Page!");
+        return "admin";
+    }
+
+    @GetMapping("/dba**")
+    public String dataBasePage(Model model) {
+        model.addAttribute("title", "Spring Security Hello World");
+        model.addAttribute("message", "This is protected page - Database Page!");
+        return "admin";
     }
 }
